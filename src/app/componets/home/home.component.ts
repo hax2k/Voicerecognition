@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
     this.$.voice.stop();
     if (this.text != '') {
       let num = Math.floor(Math.random() * 3);
+      this.userPref = this.$.ls.getCollection("userpref")
       let res = new PredictData()
       res.name = this.userPref.name
       res.language = this.userPref.language
