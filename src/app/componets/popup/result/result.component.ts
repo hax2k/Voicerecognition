@@ -11,6 +11,7 @@ import { PredictData, UserPref } from 'src/app/models/models';
 export class ResultComponent implements OnInit {
   change: boolean = false
   res: PredictData = new PredictData()
+  changeLang: any
   userPref: UserPref = new UserPref();
 
   constructor(public $: ServicesService, private dialogRef: MatDialogRef<ResultComponent>, @Inject(MAT_DIALOG_DATA) data: PredictData) {
@@ -19,19 +20,22 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.res)
-    this.userPref.language = this.$.voice.lang
+    this.changeLang = this.$.voice.lang
 
   }
   toggle() {
     this.change = !this.change
   }
-  changeLanguage() {
+  setLang() {
+    this.userPref = this.$.ls.getCollection('userpref')
     let newObj: any = {}
     newObj.name = this.userPref.name
-    newObj.language = this.userPref.language
+    newObj.language = this.changeLang
     this.$.ls.setCollection('userpref', newObj)
-    this.$.voice.init()
+  }
+  changeLanguage() {
 
+    this.$.voice.init()
     this.userPref = new UserPref()
     this.dialogRef.close();
   }
