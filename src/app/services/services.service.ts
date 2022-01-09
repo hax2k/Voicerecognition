@@ -13,6 +13,6 @@ export class ServicesService {
     public voice: VoiceRecognitionService,
     public model: ModelmanagerService,
     public db: FirebaseService,
-    public ls:StoragecollectionService
+    public ls: StoragecollectionService
   ) { }
 }
