@@ -1,0 +1,60 @@
+<ng-container *ngIf="show">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 style="color:white; font-size:50px; font-family: 'Josefin Sans', sans-serif; font-weight: 100;">
+                    db 1.0</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter Password</mat-label>
+                    <input style="color:white;" onfocus="this.value = ''" type="password" matInput
+                        [(ngModel)]="typePass" (keyup)="checkPassword()">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!show">
+    <table class="table table-hover table-dark text-center">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Question</th>
+                <th scope="col">Answer</th>
+                <th scope="col">Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <th>{{item.name}}</th>
+                <th>{{item.que}}</th>
+                <th>{{item.ans}}</th>
+                <th>{{item.language}}</th>
+
+            </tr>
+        </tbody>
+    </table>
+</ng-container>

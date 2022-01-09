@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2>{{res.que}} ?</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12  text-center">
+        <h2>{{res.ans}}</h2>
+    </div>
+</div>
+<div class="row" *ngIf="change">
+    <div class="col-md-12 text-center">
+        <mat-form-field appearance="fill">
+            <mat-label>Select Language</mat-label>
+            <mat-select [(value)]="$.voice.lang" [(ngModel)]="userPref.language">
+                <mat-option *ngFor="let x of $.voice.languge" [value]="x.value">
+                    {{x.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center ">
+        <button *ngIf="!change" mat-raised-button color="basic" style="background-color: #24222f !important;"
+            (click)="toggle()">Change Language</button>
+        <button *ngIf="change" mat-raised-button color="primary" (click)="changeLanguage()">Save</button>
+    </div>
+</div>

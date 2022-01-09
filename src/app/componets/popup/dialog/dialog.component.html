@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Name</mat-label>
+            <input type="text" matInput [(ngModel)]="userPref.name">
+        </mat-form-field>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <mat-form-field appearance="fill">
+            <mat-label>Select Language</mat-label>
+            <mat-select [(value)]="voice.lang" [(ngModel)]="userPref.language" (ngModelChange)="voice.init()">
+                <mat-option *ngFor="let x of voice.languge" [value]="x.value">
+                    {{x.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center ">
+        <button mat-raised-button color="primary" [disabled]="!userPref.language|| !userPref.name" (click)="save()" >Save</button>
+    </div>
+</div>
